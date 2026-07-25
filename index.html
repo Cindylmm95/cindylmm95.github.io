@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Cindy Mendoza — Analytics Manager specializing in data strategy, business intelligence, data science, and AI."
+  />
+  <title>Cindy Mendoza | Analytics Manager</title>
+
+  <style>
+    :root {
+      --background: #f7f8fa;
+      --surface: #ffffff;
+      --text: #15181d;
+      --muted: #5f6670;
+      --border: #e3e6ea;
+      --accent: #176b57;
+      --accent-soft: #e8f3ef;
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--background);
+      font-family:
+        Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max-width));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(227, 230, 234, 0.9);
+      background: rgba(247, 248, 250, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 750;
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.94rem;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 112px 0 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 22px;
+      padding: 7px 12px;
+      border: 1px solid #cfe2db;
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 30px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.08rem, 2.2vw, 1.35rem);
+    }
+
+    .hero-copy strong {
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid var(--text);
+      border-radius: 10px;
+      background: var(--text);
+      color: #fff;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .button.secondary {
+      border-color: var(--border);
+      background: var(--surface);
+      color: var(--text);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      padding: 24px 0 80px;
+    }
+
+    .metric {
+      min-height: 170px;
+      padding: 26px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+    }
+
+    .metric-value {
+      display: block;
+      margin-bottom: 10px;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .metric-label {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      letter-spacing: -0.045em;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      display: flex;
+      min-height: 260px;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface);
+      text-decoration: none;
+      transition:
+        transform 160ms ease,
+        border-color 160ms ease,
+        box-shadow 160ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: #bac1c9;
+      box-shadow: 0 16px 40px rgba(21, 24, 29, 0.08);
+    }
+
+    .project-tag {
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      margin: 16px 0 10px;
+      font-size: 1.3rem;
+      letter-spacing: -0.025em;
+    }
+
+    .project-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .project-link {
+      margin-top: 28px;
+      font-weight: 700;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    footer {
+      padding: 36px 0 48px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    @media (max-width: 760px) {
+      .nav-links a:not(:last-child) {
+        display: none;
+      }
+
+      .hero {
+        padding-top: 84px;
+      }
+
+      .metrics,
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        min-height: 140px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">Cindy Mendoza</a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#work">Selected work</a>
+        <a href="#expertise">Expertise</a>
+        <a href="https://github.com/Cindylmm95" target="_blank" rel="noreferrer">
+          GitHub
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Analytics Manager · Data Science & AI</div>
+
+        <h1>I turn complex data into decisions.</h1>
+
+        <p class="hero-copy">
+          I am <strong>Cindy Mendoza</strong>, an analytics leader with
+          <strong><span data-years-since="2019-04-01">7</span>+ years</strong>
+          of experience building scalable data products, business intelligence
+          solutions, and analytics programs for global teams.
+        </p>
+
+        <div class="actions">
+          <a class="button" href="#work">Explore my work</a>
+          <a
+            class="button secondary"
+            href="https://github.com/Cindylmm95"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View GitHub
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="container metrics" aria-label="Professional highlights">
+      <article class="metric">
+        <span class="metric-value">
+          <span data-years-since="2019-04-01">7</span>+
+        </span>
+        <span class="metric-label">Years in data and analytics</span>
+      </article>
+
+      <article class="metric">
+        <span class="metric-value">
+          <span data-years-since="2023-02-01">3</span>+
+        </span>
+        <span class="metric-label">Years leading analytics teams</span>
+      </article>
+
+      <article class="metric">
+        <span class="metric-value">Global</span>
+        <span class="metric-label">
+          Experience supporting AMER, EMEA, and APAC stakeholders
+        </span>
+      </article>
+    </section>
+
+    <section class="section" id="work">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Selected work</h2>
+          <p>
+            A concise view of projects where data, technology, and business
+            decisions come together.
+          </p>
+        </div>
+
+        <div class="projects">
+          <!-- Replace each href with the GitHub Pages URL for that project. -->
+          <a class="project-card" href="#" aria-label="Sponsor Analytics Platform">
+            <div>
+              <span class="project-tag">Business Intelligence</span>
+              <h3>Sponsor Analytics Platform</h3>
+              <p>
+                Reporting and decision support for 30+ supplier programs,
+                combining commercial, customer, and digital performance.
+              </p>
+            </div>
+            <span class="project-link">View project →</span>
+          </a>
+
+          <a class="project-card" href="#" aria-label="Automated Executive Reporting">
+            <div>
+              <span class="project-tag">Automation</span>
+              <h3>Automated Executive Reporting</h3>
+              <p>
+                A SQL and Power BI workflow that reduced report preparation
+                from one full day to approximately 20 minutes.
+              </p>
+            </div>
+            <span class="project-link">View project →</span>
+          </a>
+
+          <a class="project-card" href="#" aria-label="Customer and Product Analytics">
+            <div>
+              <span class="project-tag">Data Science</span>
+              <h3>Customer & Product Analytics</h3>
+              <p>
+                Analytics solutions for adoption, segmentation, customer
+                journeys, conversion, and product performance.
+              </p>
+            </div>
+            <span class="project-link">View project →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="expertise">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Expertise</h2>
+          <p>
+            Biomedical Engineer, Master in Customer Analytics and Digital
+            Marketing, and current Artificial Intelligence master's student.
+          </p>
+        </div>
+
+        <div class="skills" aria-label="Skills">
+          <span class="skill">Data Strategy</span>
+          <span class="skill">Analytics Leadership</span>
+          <span class="skill">SQL</span>
+          <span class="skill">Databricks</span>
+          <span class="skill">Python</span>
+          <span class="skill">Power BI</span>
+          <span class="skill">Adobe Analytics</span>
+          <span class="skill">Salesforce</span>
+          <span class="skill">Data Science</span>
+          <span class="skill">Artificial Intelligence</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-content">
+      <span>© <span id="current-year"></span> Cindy Mendoza</span>
+      <span>Built for GitHub Pages</span>
+    </div>
+  </footer>
+
+  <script>
+    /**
+     * Returns the number of complete years elapsed since a date.
+     * It checks whether the anniversary has occurred in the current year,
+     * so the value updates accurately without manual changes.
+     */
+    function getCompleteYears(startDateString) {
+      const startDate = new Date(startDateString + "T00:00:00");
+      const today = new Date();
+
+      let years = today.getFullYear() - startDate.getFullYear();
+
+      const anniversaryHasPassed =
+        today.getMonth() > startDate.getMonth() ||
+        (today.getMonth() === startDate.getMonth() &&
+          today.getDate() >= startDate.getDate());
+
+      if (!anniversaryHasPassed) {
+        years -= 1;
+      }
+
+      return Math.max(years, 0);
+    }
+
+    document.querySelectorAll("[data-years-since]").forEach((element) => {
+      element.textContent = getCompleteYears(element.dataset.yearsSince);
+    });
+
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>

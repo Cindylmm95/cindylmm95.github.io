@@ -239,6 +239,70 @@
       color: var(--text);
     }
 
+    .intro-bio {
+      display: grid;
+      grid-template-columns: 170px 1fr;
+      gap: 22px;
+      align-items: start;
+      margin-bottom: 20px;
+    }
+
+    .profile-note {
+      display: grid;
+      gap: 14px;
+      justify-items: start;
+    }
+
+    .profile-image-wrap {
+      display: flex;
+      width: 160px;
+      height: 160px;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      background: linear-gradient(180deg, rgba(243, 237, 255, 0.9), rgba(255, 255, 255, 0.96));
+      box-shadow: 0 12px 30px rgba(74, 40, 121, 0.08);
+      overflow: hidden;
+    }
+
+    .profile-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .speech-bubble {
+      position: relative;
+      max-width: 320px;
+      padding: 15px 18px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+      font-size: 0.96rem;
+      font-weight: 650;
+      line-height: 1.5;
+      box-shadow: 0 12px 28px rgba(74, 40, 121, 0.06);
+    }
+
+    .speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: 22px;
+      bottom: -10px;
+      width: 18px;
+      height: 18px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+      transform: rotate(45deg);
+    }
+
+    .bio-text {
+      margin-top: 6px;
+    }
+
     .facts {
       display: grid;
       gap: 14px;
@@ -470,6 +534,18 @@
         grid-template-columns: 1fr;
       }
 
+      .intro-bio {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-note {
+        justify-items: center;
+      }
+
+      .speech-bubble {
+        max-width: 100%;
+      }
+
       .footer-content {
         flex-direction: column;
       }
@@ -555,17 +631,45 @@
 
         <div class="about-grid">
           <article class="panel">
-            <p>
-              I have worked on business intelligence, customer analytics,
-              reporting automation, and data products for global teams. I am
-              also developing hands-on AI projects through my current studies.
-              I am especially interested in building solutions that are not only
-              technically sound, but also understandable, maintainable, and
-              useful in real decisions.
-            </p>
+            <div class="intro-bio">
+              <div class="profile-note">
+                <div class="profile-image-wrap">
+                  <img
+                    class="profile-image"
+                    src="assets/cindy-portrait.png"
+                    alt="Portrait of Cindy Mendoza"
+                    loading="lazy"
+                  />
+                </div>
+
+                <div class="speech-bubble">
+                  Hi, I’m Cindy! Welcome to my portfolio.
+                </div>
+              </div>
+
+              <div class="bio-text">
+                <p>
+                  I have worked on business intelligence, customer analytics,
+                  reporting automation, data products, and AI projects. I am
+                  curious by nature and love experimenting with technologies to
+                  learn what they can really do in practice. I am especially
+                  interested in building solutions that are not only technically
+                  sound, but also understandable, maintainable, and useful in
+                  real decisions. Check my portfolio to see some of my latest
+                  experiments.
+                </p>
+              </div>
+            </div>
           </article>
 
           <aside class="panel facts" aria-label="Education">
+            <div class="fact">
+              <span class="fact-label">Completed</span>
+              <span class="fact-value">
+                Bachelor’s in Biomedical Engineering
+              </span>
+            </div>
+
             <div class="fact">
               <span class="fact-label">Completed</span>
               <span class="fact-value">

@@ -300,34 +300,130 @@
       line-height: 1.5;
     }
 
-    .pending {
-      padding: 30px;
-      border: 1px solid var(--accent-light);
-      border-radius: 18px;
-      background:
-        linear-gradient(135deg, rgba(243, 237, 255, 0.95), rgba(255, 255, 255, 0.92));
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
     }
 
-    .pending-label {
+    .project-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--surface);
+      box-shadow: 0 14px 42px rgba(74, 40, 121, 0.07);
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-light);
+      box-shadow: 0 20px 50px rgba(74, 40, 121, 0.12);
+    }
+
+    .project-media {
+      display: block;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+
+    .project-media img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      transition: transform 240ms ease;
+    }
+
+    .project-card:hover .project-media img {
+      transform: scale(1.015);
+    }
+
+    .project-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 24px;
+    }
+
+    .project-type {
       display: inline-block;
-      margin-bottom: 12px;
+      margin-bottom: 9px;
       color: var(--accent);
-      font-size: 0.76rem;
-      font-weight: 780;
+      font-size: 0.74rem;
+      font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    .pending h3 {
-      margin: 0 0 8px;
+    .project-content h3 {
+      margin: 0;
       font-size: 1.35rem;
-      letter-spacing: -0.025em;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
     }
 
-    .pending p {
-      max-width: 680px;
-      margin: 0;
+    .project-content p {
+      margin: 12px 0 0;
       color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 18px;
+    }
+
+    .project-tag {
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-soft);
+      color: var(--accent-dark);
+      font-size: 0.76rem;
+      font-weight: 680;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: auto;
+      padding-top: 22px;
+    }
+
+    .project-link {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 14px;
+      border: 1px solid var(--accent-dark);
+      border-radius: 9px;
+      background: var(--accent-dark);
+      color: #ffffff;
+      font-size: 0.84rem;
+      font-weight: 730;
+      text-decoration: none;
+    }
+
+    .project-link.secondary {
+      border-color: var(--border);
+      background: transparent;
+      color: var(--text);
+    }
+
+    .project-link:hover {
+      filter: brightness(1.04);
     }
 
     .skills {
@@ -369,7 +465,8 @@
 
       .experience-strip,
       .about-grid,
-      .achievements {
+      .achievements,
+      .projects {
         grid-template-columns: 1fr;
       }
 
@@ -460,10 +557,11 @@
           <article class="panel">
             <p>
               I have worked on business intelligence, customer analytics,
-              reporting automation, data products, and AI projects. 
-              I am especially interested in building solutions that are
-              not only technically sound, but also understandable, maintainable,
-              and useful in real decisions.
+              reporting automation, and data products for global teams. I am
+              also developing hands-on AI projects through my current studies.
+              I am especially interested in building solutions that are not only
+              technically sound, but also understandable, maintainable, and
+              useful in real decisions.
             </p>
           </article>
 
@@ -513,17 +611,115 @@
     <section class="section" id="portfolio">
       <div class="container">
         <div class="section-heading">
-          <h2>Portfolio in progress</h2>
+          <h2>Projects</h2>
+          <p>
+            Interactive work where analytics, artificial intelligence, and
+            practical problem solving come together.
+          </p>
         </div>
 
-        <div class="pending">
-          <span class="pending-label">Currently building</span>
-          <h3>Public case studies and interactive projects</h3>
-          <p>
-            I am preparing a selection of projects that show not only the final
-            result, but also the questions, decisions, experiments, and lessons
-            behind the work.
-          </p>
+        <div class="projects">
+          <article class="project-card">
+            <a
+              class="project-media"
+              href="https://cindylmm95.github.io/apparel-image-classifier/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open the Apparel Image Classifier"
+            >
+              <img
+                src="assets/apparel-image-classifier.webp"
+                alt="Apparel Image Classifier recognizing a cat wearing a red dress"
+                loading="lazy"
+              />
+            </a>
+
+            <div class="project-content">
+              <span class="project-type">Computer Vision</span>
+              <h3>Apparel Image Classifier</h3>
+              <p>
+                Trained and optimized a model to classify 24 apparel categories,
+                then deployed it for local browser predictions. It even identified
+                a cat wearing a red dress with 96.7% confidence.
+              </p>
+
+              <div class="project-tags" aria-label="Technologies used">
+                <span class="project-tag">TensorFlow</span>
+                <span class="project-tag">Transfer Learning</span>
+                <span class="project-tag">TensorFlow.js</span>
+              </div>
+
+              <div class="project-links">
+                <a
+                  class="project-link"
+                  href="https://cindylmm95.github.io/apparel-image-classifier/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Try live project ↗
+                </a>
+                <a
+                  class="project-link secondary"
+                  href="https://github.com/Cindylmm95/apparel-image-classifier"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View code ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a
+              class="project-media"
+              href="https://cindylmm95.github.io/my-analytics-request/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Open the Sara Analytics Request Chatbot"
+            >
+              <img
+                src="assets/sara-analytics-chatbot.webp"
+                alt="Sara chatbot guiding a structured analytics request"
+                loading="lazy"
+              />
+            </a>
+
+            <div class="project-content">
+              <span class="project-type">Task Optimization</span>
+              <h3>Sara Analytics Request Chatbot</h3>
+              <p>
+                Designed a guided chatbot that turns an informal analytics request
+                into a structured intake by capturing business needs, data sources,
+                KPIs, audience, timeline, and approvals.
+              </p>
+
+              <div class="project-tags" aria-label="Technologies used">
+                <span class="project-tag">IBM Watson Assistant</span>
+                <span class="project-tag">Conversation Design</span>
+                <span class="project-tag">Workflow Optimization</span>
+              </div>
+
+              <div class="project-links">
+                <a
+                  class="project-link"
+                  href="https://cindylmm95.github.io/my-analytics-request/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Try live project ↗
+                </a>
+                <a
+                  class="project-link secondary"
+                  href="https://github.com/Cindylmm95/my-analytics-request"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  View code ↗
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
